@@ -6,7 +6,7 @@ export default function PersonaIInfo() {
       </h2>
       <div className="absolute border-t-4  border-purple-600 w-1/3"></div>
       <p className="my-1.5 text-base leading-6 text-gray-500">
-        Get started with the basics: your name and contact information
+        Get started with the basics:
       </p>
 
       <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
