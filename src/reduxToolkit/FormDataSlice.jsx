@@ -1,12 +1,6 @@
+
+
 import { createSlice } from '@reduxjs/toolkit'
-
-const experience = {
-  experienceData: null,
-}
-
-const education = {
-  educationData: null,
-}
 
 const FormDataSlice = createSlice({
   name: 'user',
@@ -19,6 +13,17 @@ const FormDataSlice = createSlice({
     },
   },
 })
+export const selectUserData = (state) => state.user.userData
+export const { setUserData } = FormDataSlice.actions
+export default FormDataSlice.reducer
+
+const experience = {
+  experienceData: null,
+}
+
+const education = {
+  educationData: null,
+}
 
 const ExperienceSlice = createSlice({
   name: 'experience',
@@ -30,12 +35,9 @@ const ExperienceSlice = createSlice({
   },
 })
 
-export const selectUserData = (state) => state.user.userData
-export const { setUserData } = FormDataSlice.actions
-export default FormDataSlice.reducer
-
 // for experience
-export const selectExperienceData = (state) => state.experience.experienceData
+export const selectExperienceData = (state) =>
+  state.experience.experienceData
 export const { setExperienceData } = ExperienceSlice.actions
 export const ExperienceDataReducer = ExperienceSlice.reducer
 
@@ -46,10 +48,21 @@ const EducationSlice = createSlice({
     setEducationData: (state, action) => {
       state.educationData = action.payload
     },
+    deleteEducationData: (state, action) => {
+      state.educationData = state.educationData.filter(
+        (_, index) => index !== action.payload
+      )
+    },
   },
 })
 
 // for education
-export const selectEducationData = (state) => state.education.educationData
-export const { setEducationData } = EducationSlice.actions
+export const selectEducationData = (state) =>
+  state.education.educationData
+export const { setEducationData, deleteEducationData } = EducationSlice.actions
 export const EducationDataReducer = EducationSlice.reducer
+
+
+
+
+

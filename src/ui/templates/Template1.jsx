@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
-import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
-import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
+import {
+  selectEducationData,
+  selectExperienceData,
+  selectUserData,
+} from '../../reduxToolkit/FormDataSlice.jsx'
 
 function Template1() {
-  const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const userEducationData = useSelector(selectEducationData)
@@ -17,37 +17,31 @@ function Template1() {
     //       <div
     //   className="w-[210mm] h-[297mm] lg:max-h-[842px] lg:overflow-hidden flex flex-row  "
     // >
-    <div className="w-[210mm] h-[1120px] max-h-[1120px] lg:overflow-y-auto flex flex-row border border-gray-300 ">
-      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto grow">
-        <div className="leftimgbox">
-          <div className="img">
-            <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
+    <div className='w-[210mm]   flex flex-row border border-gray-300 '>
+      <div className='bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)]   grow'>
+        <div className='leftimgbox'>
+          <div className='img'>
+            <div className='w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]'></div>
           </div>
-          <div className="mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex">
-            {/* <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
-            <p className="text-[rgb(252,255,250)] lastname ">Patil</p>
-          </div>
-          <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress text-[15px]">gmail@gmail.com</p>
-          </div> */}
-            <p className="text-[rgb(252,255,250)] firstname">
+          <div className='mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex'>
+            <p className='text-[rgb(252,255,250)] firstname'>
               {userInputData && userInputData.firstName
                 ? userInputData.firstName
                 : 'Devraj'}
             </p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">
+            <p className='text-[rgb(252,255,250)] lastname ml-2'>
               {userInputData && userInputData['last-name']
                 ? userInputData['last-name']
                 : 'Patil'}
             </p>
           </div>
-          <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">
+          <div className='text-xl font-medium mt-[-0px] ml-[70px]'>
+            <p className='emailaddress'>
               {userInputData && userInputData['email-address']
                 ? userInputData['email-address']
                 : 'gmail@gmail.com'}
             </p>
-            <p className="Address">
+            <p className='Address'>
               {userInputData && userInputData.address
                 ? userInputData.address
                 : 'Belgian tower'}
@@ -56,60 +50,47 @@ function Template1() {
                 ? userInputData.city
                 : 'Paris'}
             </p>
-            <div className='flex flex-row'>
-              <p className="citycode">
-                {userInputData && userInputData['city-code']
-                  ? userInputData['city-code']
-                  : '12345'}
-              </p>
-              <p className="state">
-                {userInputData && userInputData.state
-                  ? userInputData.state
-                  : 'state'}
-              </p>
-              <p className="country">
+            <p className='citycode'>
+              {userInputData && userInputData['city-code']
+                ? userInputData['city-code']
+                : '12345'}
+            </p>
+            <p className='state'>
+              {userInputData && userInputData.state
+                ? userInputData.state
+                : 'state'}
+            </p>
+            <p className='country'>
               {userInputData && userInputData.country
                 ? userInputData.country
                 : 'Country'}
             </p>
-            </div>
-            
           </div>
         </div>
 
-        <div className="w-4/5 bg-white text-[rgb(255,0,0)] ml-10 mt-5">
+        <div className='w-4/5 bg-white text-[rgb(219,219,219)] ml-10 mt-5'>
           <hr />
         </div>
-
-        <div className="text-[rgb(167,27,36)] ml-10 mt-5 ">
-          <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
+        <div className='text-[rgb(255,255,255)] ml-10 mt-5 '>
+          <h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]'>
             EDUCATION
           </h3>
-          {/* <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
-          </p>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
-          </p>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
-          </p> */}
 
           {userEducationData && userEducationData.length > 0 ? (
             <>
               {userEducationData.map((edu, index) => (
                 <div
                   key={index}
-                  className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+                  className='edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]'
                 >
-                  <div className="duration flex gap-x-2">
+                  <div className='duration flex gap-x-2'>
                     <h2>{edu.degree}</h2>
-                    <span className="text-[15px] text-gray-500">
+                    <span className='text-[15px] text-[rgb(219,219,219)]'>
                       {edu.schoolName} | {edu.startDate} - {edu.endDate}
                     </span>
                   </div>
 
-                  <div className="duration text-[15px] text-gray-500">
+                  <div className='duration text-[15px] text-[rgb(219,219,219)]'>
                     {edu.description}
                   </div>
                 </div>
@@ -119,14 +100,14 @@ function Template1() {
             <div>
               <div>
                 <h2>{'Masters in Human Resources'}</h2>
-                <div className="duration text-[15px] text-gray-500">
+                <div className='duration text-[15px] text-[rgb(219,219,219)]'>
                   {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
                   {'End Date'}
                 </div>
               </div>
               <div>
                 <h2>{'Masters in Human Resources'}</h2>
-                <div className="duration text-[15px] text-gray-500">
+                <div className='duration text-[15px] text-[rgb(219,219,219)]'>
                   {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
                   {'End Date'}
                 </div>
@@ -134,8 +115,8 @@ function Template1() {
             </div>
           )}
 
-          <div className=" font-medium  mt-[35px] ">
-            <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
+          <div className=' font-medium  mt-[35px] '>
+            <h2 className='text-3xl font-semibold text-[rgb(252,255,250)]'>
               Skills
             </h2>
             {userInputData &&
@@ -143,7 +124,7 @@ function Template1() {
             userInputData.skills.length > 0 ? (
               userInputData.skills.map((skill, index) => (
                 <ul
-                  className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
+                  className='pt-[10px] text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   '
                   key={index}
                 >
                   <li
@@ -151,17 +132,17 @@ function Template1() {
                   >
                     {skill[1]}
                   </li>
-                  <li className="updated-skill  text-[rgb(252,255,250)]">
+                  <li className='updated-skill  text-[rgb(252,255,250)]'>
                     {skill[0]}
                   </li>
                 </ul>
               ))
             ) : (
-              <ul className="pt-5 text-lg  text-[rgb(252,255,250)] ">
-                <li className="mt-2">First</li>
-                <li className="mt-2">Fdfsrdst</li>
-                <li className="mt-2">sdgsdgt</li>
-                <li className="mt-2">Fisdg</li>
+              <ul className='pt-5 text-lg  text-[rgb(252,255,250)] '>
+                <li className='mt-2'>First</li>
+                <li className='mt-2'>Fdfsrdst</li>
+                <li className='mt-2'>sdgsdgt</li>
+                <li className='mt-2'>Fisdg</li>
               </ul>
             )}
           </div>
@@ -171,13 +152,13 @@ function Template1() {
           userInputData.language &&
           userInputData.language.length > 0 ? (
             <>
-              <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
+              <h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]'>
                 LANGUAGES
               </h3>
               {userInputData.language.map((lan, index) => {
                 return (
-                  <ul key={index} className="">
-                    <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
+                  <ul key={index} className=''>
+                    <li className='list-item-D1 text-l font-medium text-[rgb(224,231,239)] pt-[10px]'>
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
@@ -188,13 +169,13 @@ function Template1() {
         </div>
       </div>
 
-      <div className="bg-[#FFFFFF]">
-        <div className="text-xl font-medium text-black ml-10 mt-20 ">
-          <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
+      <div className='bg-[#FFFFFF] '>
+        <div className='text-xl font-medium text-black ml-10 mt-20 '>
+          <h2 className='text-3xl font-bold text-[rgb(2,4,2)]'>Profile</h2>
           {userInputData && userInputData.description ? (
             userInputData.description
           ) : (
-            <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
+            <p className='mt-5 text-base font-medium text-[rgb(89,88,90)] '>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Explicabo veritatis mollitia voluptates reiciendis deleniti error
               quasi dolorum dignissimos rem? Adipisci error facere aspernatur
@@ -203,8 +184,8 @@ function Template1() {
           )}
         </div>
 
-        <div className="text-xl font-medium text-black ml-10 mt-5">
-          <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
+        <div className='text-xl font-medium text-black ml-10 mt-5'>
+          <h2 className='text-3xl font-semibold text-[rgb(2,4,2)]'>
             Professional Experience
           </h2>
 
@@ -213,17 +194,17 @@ function Template1() {
               {userExperienceData.map((exp, index) => (
                 <div
                   key={index}
-                  className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+                  className='flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]'
                 >
-                  <div className="duration flex gap-x-2 ">
+                  <div className='duration flex gap-x-2 '>
                     <h2>{exp.Job_Title}</h2>
-                    <span className="text-gray-500">
+                    <span className='text-gray-500'>
                       {exp.Company_Name} | {exp.WrkStartDate} to{' '}
                       {exp.WrkEndDate}
                     </span>
                   </div>
                   <div
-                    className="text-gray-500"
+                    className=' text-base font-medium text-[rgb(89,88,90)]'
                     dangerouslySetInnerHTML={{
                       __html: exp.description,
                     }}
@@ -233,71 +214,61 @@ function Template1() {
             </>
           ) : (
             <>
-              <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <div className='exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]'>
                 <h2>{'Manager'}</h2>
-                <div className="duration text-gray-500 ">
+                <div className='duration text-gray-500 '>
                   {'XYZ company'} | {'Start Date - End Date'}
                 </div>
               </div>
-              <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
-                <li className="list-item">
+              <ul className='text-base font-medium text-[rgb(89,88,90)] lg:leading-[25px]'>
+                <li>
                   Implement effective company policies to ensure that all
                   practices comply with labor and employment regulations
                 </li>
-                <li className="list-item">
+                <li>
                   Increased employee retention rates by managing workplace
                   satisfaction to an over 90% success rate by creating and
                   maintaining a positive work environment
                 </li>
-                <li className="list-item">
+                <li>
                   Develop targeted outreach practices to increase minority
                   recruitment and ensure compliance with affirmative action
                   policies
                 </li>
-                <li className="list-item">
+                <li>
                   Monitor scheduled in and out times as well as employee breaks
                   to ensure that proper employment laws are met
                 </li>
               </ul>
 
-              <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <div className='exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]'>
                 <h2>{'Manager'}</h2>
-                <div className="duration text-gray-500 ">
+                <div className='duration text-gray-500 '>
                   {'XYZ company'} | {'Start Date - End Date'}
                 </div>
               </div>
-              <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
-                <li className="list-item">
+              <ul className='text-base font-medium text-[rgb(89,88,90)] lg:leading-[25px]'>
+                <li>
                   Implement effective company policies to ensure that all
                   practices comply with labor and employment regulations
                 </li>
-                <li className="list-item">
+                <li>
                   Increased employee retention rates by managing workplace
                   satisfaction to an over 90% success rate by creating and
                   maintaining a positive work environment
                 </li>
-                <li className="list-item">
+                <li>
                   Develop targeted outreach practices to increase minority
                   recruitment and ensure compliance with affirmative action
                   policies
                 </li>
-                <li className="list-item">
+                <li>
                   Monitor scheduled in and out times as well as employee breaks
                   to ensure that proper employment laws are met
                 </li>
               </ul>
             </>
           )}
-
-          {/* <ul className="mt-5 text-lg font-medium ">
-            <li className="mt-5 text-base text-[rgb(89,88,90)]">First</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fdfsrdst</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">sdgsdgt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fisdg</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fsdgsdt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Firesnt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fefhehge</li>
-          </ul> */}
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
@@ -305,24 +276,24 @@ function Template1() {
         userInputData.projects &&
         userInputData.projects.length > 0 ? (
           <>
-            <div className="text-xl font-medium text-black ml-10 mt-5">
-              <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
+            <div className='text-xl font-medium text-black ml-10 mt-5'>
+              <h2 className='text-3xl font-semibold text-[rgb(2,4,2)]'>
                 Projects
               </h2>
               {userInputData.projects.map((project) => {
                 return (
-                  <ul key={project.id} className="pt-5 text-lg font-medium">
-                    <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
-                      <h2 className="text-2xl heading-D1">{project.Heading}</h2>
+                  <ul key={project.id} className='pt-5 text-lg font-medium'>
+                    <div className='project-header mt-2 text-base '>
+                      <h2 className='text-2xl heading-D1'>{project.Heading}</h2>
                       <a
                         href={project.Link}
-                        className="text-md text-cyan-600 cursor-pointer"
+                        className='text-md text-cyan-600 cursor-pointer'
                       >
                         {project.Link}
                       </a>
                     </div>
                     <div
-                      className="max-w-[400px] text-wrap pt-[10px]"
+                      className='max-w-[400px] text-base font-medium text-[rgb(89,88,90)] text-wrap pt-[10px]'
                       dangerouslySetInnerHTML={{ __html: project.description }}
                     />
                   </ul>
@@ -337,20 +308,28 @@ function Template1() {
         userInputData.certificates &&
         userInputData.certificates.length > 0 ? (
           <>
-            <div className="text-xl font-medium text-black ml-10 mt-5">
-              <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
+            <div className='text-xl font-medium text-black ml-10 mt-5'>
+              <h2 className='text-3xl font-semibold text-[rgb(2,4,2)]'>
                 Certificates
               </h2>
               {userInputData.certificates.map((certificate, index) => {
                 return (
                   <ul
                     key={index}
-                    className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                    className='text-[15px] text-gray-500 leading-5  pt-2 flex flex-col gap-[10px]'
                   >
-                    <h2 className="font-serif font-bold">
-                      {certificate.Certificate_Name}
-                    </h2>
-                    <div className=" flex gap-[10px]">
+                    <div className='flex gap-[10px] pt-[30px]'>
+                      <h2 className='font-serif font-bold'>
+                        {certificate.Certificate_Name}
+                      </h2>
+                      <a
+                        href={certificate.Certificate_Link}
+                        className='text-md text-cyan-600 cursor-pointer'
+                      >
+                        {certificate.Certificate_Link}
+                      </a>
+                    </div>
+                    <div className=' flex gap-[10px]'>
                       <h3>{certificate.Institute}</h3>
                       <span>|</span>
                       <span>{certificate.startDate}</span>
@@ -368,15 +347,15 @@ function Template1() {
               return (
                 <ul
                   key={customData.id}
-                  className="pt-5 text-lg font-medium ml-10"
+                  className='pt-5 text-lg font-medium ml-10'
                 >
-                  <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
-                    <h2 className=" text-3xl font-semibold text-[rgb(2,4,2)]">
+                  <div className='project-header mt-2 text-base '>
+                    <h2 className=' text-3xl font-semibold text-[rgb(2,4,2)]'>
                       {' '}
                       {customData.Custom_Heading}
                     </h2>
                     <div
-                      className="max-w-[400px] text-wrap pt-[10px]"
+                      className='max-w-[400px] text-wrap text-base font-medium text-[rgb(89,88,90)] pt-[10px]'
                       dangerouslySetInnerHTML={{
                         __html: customData.description,
                       }}

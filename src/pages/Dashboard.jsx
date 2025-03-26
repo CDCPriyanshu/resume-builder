@@ -1,10 +1,9 @@
-// dashboard
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AppLayout from '../ui/AppLayout.jsx'
 import DesktopView from '../ui/DesktopView.jsx'
-function Dashboard() {
+import '../index.css'
+const Dashboard = () => {
   const [viewSize, setViewSize] = useState(null)
-
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth
@@ -27,7 +26,11 @@ function Dashboard() {
     }
   }, [])
 
-  return <div>{viewSize === 'large' ? <DesktopView /> : <AppLayout />}</div>
+  return (
+    <div className='resume-scrollbar mt-10'>
+      {viewSize === 'large' ? <DesktopView /> : <AppLayout />}
+    </div>
+  )
 }
 
 export default Dashboard

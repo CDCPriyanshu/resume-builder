@@ -1,19 +1,14 @@
 import React, { useState, useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
-import Header from './Header.jsx'
 import Navbar from './Navbar.jsx'
-import FormSection from '../components/Form/MultiForms/MultiStepForm.jsx'
-
+import { FormSection } from '../components/Form/MultiForms/MultiStepForm.jsx'
 // Templates Import
 import Template3 from './templates/Template3.jsx'
-
 import Template1 from './templates/Template1.jsx'
 import Template4 from './templates/Template4.jsx'
-
 import Template2 from './templates/Template2.jsx'
 import Template5 from './templates/Template5.jsx'
 import template1 from '../assets/template1.png'
-import template2 from '../assets/template2.png'
 import template3 from '../assets/template3.png'
 import template4 from '../assets/template4.png'
 import template5 from '../assets/template5.png'
@@ -41,7 +36,10 @@ function AppLayout() {
 
     return (
       // <button onClick={handlePrint} className="absolute top-5 right-5 z-50    "> Download </button>
-      <button onClick={handlePrint} className="absolute top-5 right-5 z-50    ">
+      <button
+        onClick={handlePrint}
+        className="absolute top-20 right-5 z-50    "
+      >
         {' '}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,20 +87,11 @@ function AppLayout() {
   ]
 
   return previewToggle ? (
-    // #1
-    // <div className="preview-container fixed top-0 left-0 h-full ">
-
-    <div className="preview-container  ">
+    <div className="preview-container">
       {templates.map((template) => {
         if (selectedTemplate === template.id) {
           return (
-            // Original
-            // <div
-            //   className="bg-black bg-opacity-50 absolute top-0 bottom-0 h-full overflow-hidden "
-            //   key={template.id}
-            // >
             <div
-              // className="bg-black bg-opacity-50 "
               key={template.id}
             >
               <div className="  " id="template-part">
@@ -110,7 +99,7 @@ function AppLayout() {
                   className="scale-[0.30] ml-[-40px] mr-[50px] mt-[-350px] w-[70%] "
                   id="temp"
                 >
-                  <div ref={pdfRef2}>
+                  <div ref={pdfRef2} >
                     <template.component />
                   </div>
                 </div>
@@ -118,7 +107,7 @@ function AppLayout() {
 
               <button
                 onClick={closePopup}
-                className="absolute top-5 left-5 z-50 text-black hover:text-gray-700 focus:outline-none "
+                className="absolute top-20 left-5 z-50 text-black hover:text-gray-700 focus:outline-none "
               >
                 <svg
                   className="w-6 h-6"
@@ -139,16 +128,17 @@ function AppLayout() {
       })}
     </div>
   ) : (
-    <div className="layout flex flex-col items-center lg:flex-col-reverse gap-20 pb-[80px] md:pb-[100px]">
-      <Header />
-      <FormSection />
+    <div className="layout flex flex-col items-center lg:flex-col-reverse gap-5 pb-[80px] md:pb-[100px]">
+      {/* <Header /> */}
       <Navbar
         setPopupVisible={setPopupVisible}
         setPreviewToggle={setPreviewToggle}
       />
+      <FormSection />
+      {/* Modal for Selecting Templates */}
       {popupVisible && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg grid grid-cols-1 gap-4 max-h-[250px] overflow-y-auto md:grid-cols-3 w-[70%] relative mt-[60px]">
+        <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg grid grid-cols-1 gap-4 max-h-[350px] md:max-h-[550px] overflow-y-auto md:grid-cols-3 w-[75%] relative mt-[60px]">
             <button
               onClick={closePopup}
               className="absolute top-4 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"

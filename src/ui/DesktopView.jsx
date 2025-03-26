@@ -1,22 +1,17 @@
 import React, { useState, useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
 import MultiStepForm from '../components/Form/MultiForms/MultiStepForm.jsx'
 import Template3 from './templates/Template3.jsx'
 import Template4 from './templates/Template4.jsx'
 import Template1 from './templates/Template1.jsx'
 import Template2 from './templates/Template2.jsx'
 import Template5 from './templates/Template5.jsx'
-
 import template1 from '../assets/template1.png'
-import template2 from '../assets/template2.png'
 import template3 from '../assets/template3.png'
 import template4 from '../assets/template4.png'
 import template5 from '../assets/template5.png'
 import maintemplate from '../assets/maintemplate.png'
 import Navbar from './Navbar.jsx'
-import { FaFileDownload } from 'react-icons/fa'
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false)
@@ -30,15 +25,15 @@ function DesktopView() {
     })
 
     return (
-      <button onClick={handlePrint} className="hidden lg:block mt-[20px]">
+      <button onClick={handlePrint} className='hidden lg:block mt-[20px] '>
         {' '}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 512 512'
           width={'45px'}
-          fill="#3b82f6"
+          fill='#3b82f6'
         >
-          <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+          <path d='M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z' />
         </svg>{' '}
       </button>
     )
@@ -87,11 +82,10 @@ function DesktopView() {
   ]
 
   return (
-    <div>
-      <div className="desktop-view flex flex-col max-w-8xl m-auto pt-[20px] mx-[30px]">
-        <Header />
-        <div className="flex flex-row">
-          <div className="left w-[50%]">
+    <div className='overflow-scroll no-scrollbar mb-4'>
+      <div className='desktop-view flex flex-col max-w-8xl m-auto pt-[20px] mx-[30px]'>
+        <div className='flex flex-row'>
+          <div className='left w-[50%]'>
             <Navbar
               selectedTemplate={selectedTemplate}
               setPopupVisible={setPopupVisible}
@@ -100,14 +94,14 @@ function DesktopView() {
               handleTemplateClick={handleTemplateClick}
               closePopup={closePopup}
             />
-            <div className="w-auto">
+            <div className='w-auto'>
               <MultiStepForm />
             </div>
           </div>
 
-          <div className=" w-[45%]  translate-y-36  overflow-scroll">
-            <div className="transform origin-top-left scale-[0.60]  ">
-              <div className="" ref={pdfRef2}>
+          <div className=' w-[45%] h-[400px] mt-[150px] '>
+            <div className='transform origin-top-left scale-[0.60]  '>
+              <div className='' ref={pdfRef2}>
                 {selectedTemplate === 'TemplateD1' && <Template1 />}
 
                 {selectedTemplate === 'TemplateD2' && <Template2 />}
@@ -121,25 +115,23 @@ function DesktopView() {
         </div>
       </div>
 
-      <Footer />
-
       {popupVisible && (
-        <div className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className=" bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative">
+        <div className='z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+          <div className=' bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative'>
             <button
               onClick={closePopup}
-              className="absolute top-4 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+              className='absolute top-4 right-2 text-gray-500 hover:text-gray-700 focus:outline-none'
             >
               <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                className='w-6 h-6'
+                fill='none'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
               >
-                <path d="M6 18L18 6M6 6l12 12"></path>
+                <path d='M6 18L18 6M6 6l12 12'></path>
               </svg>
             </button>
             {templates.map((template) => (
@@ -148,7 +140,7 @@ function DesktopView() {
                 src={template.image}
                 alt={template.name}
                 onClick={() => handleTemplateClick(template.id)}
-                className="cursor-pointer border-4 border-indigo-500"
+                className='cursor-pointer border-4 border-indigo-500'
               />
             ))}
           </div>
